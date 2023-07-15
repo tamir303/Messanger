@@ -1,5 +1,6 @@
 "use client";
 
+import Avatar from "@/app/components/Avatar";
 import { User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -42,8 +43,27 @@ const UserBox: React.FC<UserBoxProps> = ({ data }) => {
                 transition
                 cursor-pointer"
     >
-      <Avatar />
-      
+      <Avatar user={data} />
+      <div className="main-w-0 flex-1">
+        <div className="focus:outline-none">
+          <div
+            className="
+                flex
+                justify-between
+                items-center
+                mb-1"
+          >
+            <p
+              className="
+                      text-sm
+                      font-medium
+                      text-gray-900"
+            >
+              {data.name}
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
